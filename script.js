@@ -49,8 +49,14 @@ window.onload = function(){
         textDiv.querySelector('.text-content').innerHTML = block;
         container.appendChild(textDiv);
     }
+    
 
     titleDiv.classList.add('title')
+    let authorElem = document.createElement('span')
+    authorElem.className = "author"
+    authorElem.innerHTML = "(" + content["author"] + ")"
+    titleDiv.querySelector('.left').appendChild(authorElem)
+
     dateDiv.classList.add('date')
 
 
