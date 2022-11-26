@@ -54,7 +54,7 @@
     }
 
     .text-div{
-        min-height: 80px;
+        display: flex;
     }
 
     textarea{
@@ -62,6 +62,17 @@
         font-family: inherit;
     }
 
+    .text-content{
+        cursor: pointer;
+    }
+
+    .text-content-active{
+        background-color: lightgreen;
+    }
+
+    .text-content-inactive:hover{
+        background-color: rgb(186, 241, 186);
+    }
 
 
     #panel{
@@ -71,6 +82,7 @@
 
     .text-div{
         margin-bottom: 10px;
+
     }
 
     #container{
@@ -85,12 +97,17 @@
 <script src="script.js" type="text/javascript"></script>
 </head>
 <body>
+<!--2 select menus Essay, Language-->
+<p style="padding:2% 5%">Select essay <select id="select-essay"></select></p>
 <div id="container">
+
+
+
+
 
 <div class="text-div">
     <div class = "left">
-        <input type="button" value="→" class="trans-btn">
-        <span class="text-content"></span>
+        <span class="text-content text-content-inactive"></span>
     </div>
     <div class="right"></div>
 </div>
