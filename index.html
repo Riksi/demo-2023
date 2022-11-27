@@ -24,7 +24,7 @@
     }
 
     form *{
-        display: block;
+        display: flex;
     }
 
     form textarea{
@@ -62,20 +62,17 @@
         font-family: inherit;
     }
 
-    .text-content{
+    .text-content-active{
         cursor: pointer;
+        font-weight: bold;
+        background-color: rgb(182, 248, 182);
     }
 
-    .text-content-active{
+    .text-content-active:hover{
         background-color: lightgreen;
     }
 
-    .text-content-inactive:hover{
-        background-color: rgb(186, 241, 186);
-    }
-
-
-    #panel{
+    #panel, .panel{
         min-height: 100px;
         font-size: 24px;
     }
@@ -90,6 +87,50 @@
         margin: auto;
     }
 
+    .progress-text:first-of-type{
+        width: 14%;
+        display: inline-block;
+        font-size: 20px;
+        vertical-align: top;
+    }
+    .progress-text{
+        text-align: center;
+    }
+
+    #progress-bar-outer{
+        width: 74%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+
+    #progress-bar {
+        background-color: lightgray;
+        width: 68%;
+    }
+
+    #progress-bar-inner {
+        width: 0%;
+        height: 30px;
+        background-color: green;
+    }
+
+    #progress-bar-inner-finished{
+        background-color: gold;
+    }
+    
+    #progress-bar, #progress-bar-text{
+        display: inline-block;
+        
+    }
+
+    #progress-bar-text{
+        width: 10%;
+        vertical-align: top;
+        font-size: 20px;
+    }
+
+
+
 
 </style>
 <script src="content.js" type="text/javascript"></script>
@@ -98,7 +139,18 @@
 </head>
 <body>
 <!--2 select menus Essay, Language-->
+<div>
 <p style="padding:2% 5%">Select essay <select id="select-essay"></select></p>
+<!--Create a progress bar-->
+<div id="progress-bar-outer">
+    <div class="progress-text">Progress</div>
+    <div id="progress-bar">
+        <div id="progress-bar-inner"></div>
+    </div>
+    <div class="progress-text" id="progress-bar-text"></div>
+</div>
+
+</div>
 <div id="container">
 
 
@@ -107,14 +159,14 @@
 
 <div class="text-div">
     <div class = "left">
-        <span class="text-content text-content-inactive"></span>
+        <span class="text-content"></span>
     </div>
     <div class="right"></div>
 </div>
 <div id="panel">
     <form id="trans-form" class="left">
         <textarea name="translation" id="trans-input"></textarea>
-        <input type="button" value="Compare" id="compare-btn">
+        <input type="button" value="Submit" id="compare-btn">
     </form>
     <div id = "diff" class="right">
     </div>
