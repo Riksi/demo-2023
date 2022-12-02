@@ -3,20 +3,21 @@
 <title>Demo</title>
 <head>
 <style>
-    @media screen and (min-width: 600px) {
-        .left {
-            float: left;
-            width: 50%;
-        }
-        .right {
-            float: right;
-            width: 50%;
-        }
-        .author {
-            padding-left: 10px;
-        }
-        
+   .author a{
+    font-size: smaller;
+    font-variant: normal;
+   }
+
+    #select-container{
+      display: block;  
     }
+
+    #well-done{
+        display: none;
+        text-align: center;
+        font-size: 48px;
+    }
+    
 
     .author{
         font-variant: small-caps;
@@ -110,10 +111,13 @@
     #progress-bar-inner {
         width: 0%;
         height: 30px;
+    }
+
+    .progress-bar-inner-unfinished{
         background-color: green;
     }
 
-    #progress-bar-inner-finished{
+    .progress-bar-inner-finished{
         background-color: gold;
     }
     
@@ -128,6 +132,32 @@
         font-size: 20px;
     }
 
+    @media screen and (min-width: 600px) {
+        .left {
+            float: left;
+            width: 50%;
+        }
+        .right {
+            float: right;
+            width: 50%;
+        }
+        .author {
+            padding-left: 10px;
+        }
+        #compare-btn{
+            margin-right: 1%;
+        }
+
+        #select-container{
+            display: inline-block;  
+        }
+
+        #select-lang, #select-essay{
+            margin-right: 10px;
+        }
+        
+    }
+
 
 
 
@@ -139,7 +169,11 @@
 <body>
 <!--2 select menus Essay, Language-->
 <div>
-<p style="padding:2% 5%">Select essay <select id="select-essay"></select></p>
+<p style="padding:2% 5%" id="select-container">
+    Select language <select id="select-lang"></select>
+    Select essay <select id="select-essay"></select>
+    <input type="button" id="reset-btn" value="Reset">
+</p>
 <!--Create a progress bar-->
 <div id="progress-bar-outer">
     <div class="progress-text">Progress</div>
@@ -165,13 +199,13 @@
 <div id="panel">
     <form id="trans-form" class="left">
         <textarea name="translation" id="trans-input"></textarea>
-        <input type="button" value="Submit" id="compare-btn">
+        <p><input type="button" value="Submit" id="compare-btn">
+        <input type="button" value="Skip" id="skip-btn"></p>
     </form>
     <div id = "diff" class="right">
     </div>
 </div>
-
-
 </div>
+<p id="well-done">Well done!</p>
 </body>
 </html>

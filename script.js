@@ -1,8 +1,41 @@
-let panel, textDivTmp;
+let panel, textDivTmp, resetBtn, wellDone;
+let testBtn;
+let initHeight;
+const TEST = false;
+
+
+const LANG_MAP = {
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German",
+    "it": "Italian",
+}
+
+function skipAll(){
+    console.log("Skipping to the end");
+    let skip = document.querySelector("#skip-btn");
+    let idx = 0;
+    while(idx < 1000){
+        skip.click();
+        idx++
+        if(skip.style.display == 'none') break
+    }
+}
+
+function isDiff(x, y){
+    let diff = Diff.diffWords(x, y);
+    for (let i = 0; i < diff.length; i++){
+        if (diff[i].added || diff[i].removed){
+            return true;
+        }
+    }
+    return false;
+}
 
 function addDiff(trans, truetrans, div){
     div.innerHTML = "";
-    const diff = Diff.diffChars(trans, truetrans);
+    const diff = Diff.diffWords(trans, truetrans);
     diff.forEach((part) => {
     // green for additions, red for deletions
     // grey for common parts
@@ -13,6 +46,9 @@ function addDiff(trans, truetrans, div){
         span.style.fontWeight = "bold";
     }
     span.style.color = color;
+    if (part.removed){
+        span.style.textDecoration = "line-through";
+    }
     span.appendChild(document
         .createTextNode(part.value));
     div.appendChild(span);
@@ -20,7 +56,7 @@ function addDiff(trans, truetrans, div){
     
     );
 
-    if(trans == truetrans){
+    if(!isDiff(trans, truetrans)){
         let span = document.createElement('span');
         // Smile emoji
         span.innerHTML = " &#128512;";
@@ -29,26 +65,31 @@ function addDiff(trans, truetrans, div){
 }
 
 function generateEssay(content){
+    wellDone.style.display = "none";
+    document.querySelector('body').style.height = initHeight + "px";
+
+    let tar = document.getElementById('select-lang').value;
 
     let container = document.getElementById('container');
     container.innerHTML = "";
 
 
     let titleDiv = textDivTmp.cloneNode(true);
-    titleDiv.querySelector('.text-content').innerHTML = content["title"];
+    titleDiv.querySelector('.text-content').innerHTML = content['en']["title"];
     
 
     let dateDiv = textDivTmp.cloneNode(true)
-    dateDiv.querySelector('.text-content').innerHTML = content["date"];
+    dateDiv.querySelector('.text-content').innerHTML = content['en']["date"];
 
     let initTextDiv = textDivTmp.cloneNode(true)
-    initTextDiv.querySelector('.text-content').innerHTML = content["text"][0];
+    initTextDiv.querySelector('.text-content').innerHTML = content['en'][tar][0];
 
     let bar = document.querySelector('#progress-bar-inner');
     let progressText = document.querySelector('#progress-bar-text');
     bar.style.width = "0%";
     if(bar.classList.contains('progress-bar-inner-finished')){
         bar.classList.remove('progress-bar-inner-finished')
+        bar.classList.add('progress-bar-inner-unfinished')
     }
     
     
@@ -62,7 +103,7 @@ function generateEssay(content){
     
     let textDivs = []
 
-    for(block of content["text"].slice(1)){
+    for(block of content["en"][tar].slice(1)){
         let textDiv = textDivTmp.cloneNode(true);
         textDiv.querySelector('.text-content').innerHTML = block;
         textDivs.push(textDiv);
@@ -73,10 +114,15 @@ function generateEssay(content){
     let authorElem = document.createElement('span')
     let transElem = document.createElement('span')
     authorElem.className = "author"
-    authorElem.innerHTML = "(" + content["author"]+ ")"
-    titleDiv.querySelector('.left').appendChild(authorElem)
-    transElem = ("<span class=author style='font-weight:normal'>(Translated by " + content['translator'] 
-                + ")</span>")
+    authorElem.innerHTML = (
+        "(" + content['en']["author"]+ ": "
+        + "<a href='" + content['en']['url'] + "'>Source</a>)")
+    let titleDivLeft = titleDiv.querySelector('.left')
+    titleDivLeft.appendChild(authorElem)
+
+    transElem = ("<span class=author style='font-weight:normal'>(Translated by " + content[tar]['author'] 
+                + ": " + "<a href=" + content[tar]['url'] + ">Source</a></span>)"
+                )
 
     dateDiv.classList.add('date')
 
@@ -85,6 +131,7 @@ function generateEssay(content){
 
     let divs = [titleDiv, dateDiv, initTextDiv, ...textDivs];
     let btn = document.getElementById('compare-btn');
+    let skipBtn = document.getElementById('skip-btn');
     let transInput = document.getElementById('trans-input'); 
     let diff = document.getElementById('diff');
     let activeIdx = 0;
@@ -93,9 +140,9 @@ function generateEssay(content){
     progressText.innerHTML = "0%"
 
     function getTrans(idx, gloss=true){
-        if(idx == 0) return content["titletrans"] + (gloss ? transElem : "");
-        if(idx == 1) return content["datetrans"]
-        return content["trans"][idx - 2]
+        if(idx == 0) return content[tar]['title'] + (gloss ? transElem : "");
+        if(idx == 1) return content[tar]['date']
+        return content[tar]['en'][idx - 2]
     }
 
     function activateGloss(div){
@@ -127,47 +174,114 @@ function generateEssay(content){
         progressText.innerHTML = perc + "%"
 
         if(activeIdx == (divs.length - 1)){
+            bar.classList.remove('progress-bar-inner-unfinished')
             bar.classList.add('progress-bar-inner-finished')
+            skipBtn.style.display = "none";
+            panel.style.display='none';
+            if(TEST){
+                // get rid of event listeners for testBtn
+                testBtn.removeEventListener('click', skipAll);
+                testBtn.enabled = false;
+            }
+            wellDone.style.display = "block";
         }
-        if(activeIdx < (divs.length - 1)){
+        else {
             activateGloss(divs[activeIdx + 1])
             container.insertBefore(divs[activeIdx + 1], panel);
+            let newHeight = (
+                document.querySelector('body').offsetHeight 
+                + 1.5 * divs[activeIdx + 1].offsetHeight);
+            document.querySelector('body').style.height = (newHeight + "px");
             divs[activeIdx + 1].querySelector('.text-content').classList.add('text-content-active');
-        }
-        else{
-            panel.style.display='none';
-        }
+            // divs[activeIdx + 1].scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+            activeIdx += 1;
+            
+        
+        }   
+        
     }
     
     transInput.onkeyup = ()=>{
         learnTrans[activeIdx] = transInput.value
+    }
+
+
+    skipBtn.onclick = ()=>{
+        showNext();
     }
     
     btn.onclick = ()=>{
         let x= transInput.value.trim().toLowerCase();
         let y = getTrans(activeIdx, gloss=false).trim().toLowerCase();
         addDiff(x, y, diff);
-        if (x == y){
+        if (!isDiff(x, y)){
             showNext();
-            activeIdx += 1;
         }
     }
+
+    if(TEST){
+        testBtn.enabled = true;
+        testBtn.addEventListener('click', skipAll);
+    }
+
+    panel.style.display='block';
+    skipBtn.style.display = "block";
 }
 
 window.onload = function(){
     // Create select element with keys as item['title'] for each item in "data"
+    if(TEST){
+        testBtn = document.createElement('input')
+        testBtn.type = "button"
+        testBtn.value = "Test"
+        document.querySelector('#select-container').appendChild(testBtn)
+    }
     panel = document.getElementById('panel');
     textDivTmp = document.querySelector('.text-div');
+    resetBtn = document.getElementById('reset-btn');
+    wellDone = document.getElementById('well-done');
+    initHeight = document.querySelector('body').offsetHeight;
     let select = document.getElementById('select-essay');
+    let selectLang = document.getElementById('select-lang');
     for (let key in data){
         let option = document.createElement('option');
         option.value = key;
         option.innerHTML = data[key]['title'];
         select.appendChild(option);
     }
-    select.onchange = ()=>{
+
+    for (let key in LANG_MAP){
+        if (key == "en") continue;
+        let option = document.createElement('option');
+        option.value = key;
+        option.innerHTML = LANG_MAP[key];
+        selectLang.appendChild(option);
+    }
+
+    function setupSelectEssay(){
+        select.innerHTML = "";
+        let lang = selectLang.value;
+        for (let key in data){
+            if (lang in data[key]){
+                let option_essay = document.createElement('option');
+                option_essay.value = key;
+                option_essay.innerHTML = data[key]['en']['title'];
+                select.appendChild(option_essay);
+            }
+        }
+        select.onchange = ()=>{
+            generateEssay(data[select.value]);
+        }
+        
         generateEssay(data[select.value]);
     }
-    generateEssay(data[select.value]);
+
+    selectLang.onchange = setupSelectEssay;
+
+    resetBtn.onclick = ()=>{
+        generateEssay(data[select.value]);
+    }
+
+    setupSelectEssay();
     
 }

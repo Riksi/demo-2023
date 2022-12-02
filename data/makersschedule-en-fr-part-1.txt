@@ -1,0 +1,48 @@
+One reason programmers dislike meetings so much is that they're on a different type of schedule from other people.|Une des raisons qui fait que les programmeurs n'aiment pas les réunions, c'est qu'ils sont sur un autre type d'emploi du temps que les autres.
+Meetings cost them more.|Les réunions leur coûtent plus.
+There are two types of schedule, which I'll call the manager's schedule and the maker's schedule.|Il existe deux types d'emplois du temps, que je vais appeler l'emploi du temps du cadre et l'emploi du temps du créateur.
+The manager's schedule is for bosses.|L'emploi du temps du cadre est pour les patrons.
+It's embodied in the traditional appointment book, with each day cut into one hour intervals.|Il s'incarne dans le traditionnel agenda de rendez-vous, chaque jour étant découpé en intervalles d'une heure.
+You can block off several hours for a single task if you need to, but by default you change what you're doing every hour.|On peut bloquer plusieurs heures pour une seule tâche si on en a besoin, mais par défaut, on change d'activité toutes les heures.
+When you use time that way, it's merely a practical problem to meet with someone.|Lorsqu'on utilise le temps de cette façon, rencontrer quelqu'un n'est qu'une question pratique.
+Find an open slot in your schedule, book them, and you're done.|On trouve un créneau horaire dans son emploi du temps, on réserve un rendez-vous, et c'est terminé.
+Most powerful people are on the manager's schedule.|La plupart des gens puissants sont sur l'emploi du temps du cadre.
+It's the schedule of command.|C'est l'emploi du temps du pouvoir.
+But there's another way of using time that's common among people who make things, like programmers and writers.|Mais il est une autre façon d'utiliser le temps, répandue chez les personnes qui fabriquent des choses, telles que les programmeurs et les écrivains.
+They generally prefer to use time in units of half a day at least.|Ceux-ci préfèrent généralement utiliser leur temps en unités d'une demi-journée au moins.
+You can't write or program well in units of an hour.|On ne peut pas écrire ou programmer en unités d'une heure.
+That's barely enough time to get started.|C'est à peine assez pour se mettre en route.
+When you're operating on the maker's schedule, meetings are a disaster.|Lorsqu'on fonctionne sur l'emploi du temps du créateur, les réunions sont une catastrophe.
+A single meeting can blow a whole afternoon, by breaking it into two pieces each too small to do anything hard in.|Une seule réunion peut détruire toute une après-midi, la découpant en deux plages trop petites pour y faire avancer quelque chose de difficile.
+Plus you have to remember to go to the meeting.|Et en plus, on doit penser à aller à la réunion.
+That's no problem for someone on the manager's schedule.|Ce n'est pas un problème pour quelqu'un qui fonctionne sur l'emploi du temps du cadre.
+There's always something coming on the next hour; the only question is what.|Il y a toujours quelque chose à venir dans l'heure suivante, la seule question est de savoir quoi.
+But when someone on the maker's schedule has a meeting, they have to think about it.|Mais quand quelqu'un qui fonctionne sur l'emploi du temps du créateur a une réunion, il doit y penser.
+For someone on the maker's schedule, having a meeting is like throwing an exception.|Pour quelqu'un sur l'emploi du temps du créateur, avoir une réunion, c'est comme signaler une exception.
+It doesn't merely cause you to switch from one task to another; it changes the mode in which you work.|Ce n'est pas seulement qu'on passe à une autre tâche; on change le mode dans lequel on travaille.
+I find one meeting can sometimes affect a whole day.|Je me suis rendu compte qu'une réunion peut parfois affecter une journée entière.
+A meeting commonly blows at least half a day, by breaking up a morning or afternoon.|Il est courant qu'au moins une demi-journée soit détruite par une réunion qui coupe une matinée ou une après-midi.
+But in addition there's sometimes a cascading effect.|Mais à cela, s'ajoute parfois un effet de dominos.
+If I know the afternoon is going to be broken up, I'm slightly less likely to start something ambitious in the morning.|Si je sais que l'après-midi va être coupée, je suis un peu moins susceptible de commencer quelque chose d'ambitieux dans la matinée.
+I know this may sound oversensitive, but if you're a maker, think of your own case.|Je sais que je peux sembler hypersensible, mais si vous êtes un créateur, pensez à votre propre cas.
+Don't your spirits rise at the thought of having an entire day free to work, with no appointments at all?|N'a-t-on pas l'esprit plus alerte, à la pensée d'une journée entièrement libre pour travailler, sans aucun rendez-vous?
+Well, that means your spirits are correspondingly depressed when you don't.|Eh bien, cela signifie qu'on a l'esprit d'autant déprimé quand ce n'est pas le cas.
+And ambitious projects are by definition close to the limits of your capacity.|Et les projets ambitieux sont, par définition, proches des limites de nos capacités.
+A small decrease in morale is enough to kill them off.|Une petite baisse de moral est suffisante pour les abattre.
+Each type of schedule works fine by itself.|Chaque type d'emploi du temps fonctionne très bien en lui-même.
+Problems arise when they meet.|Les problèmes surgissent quand les deux se rencontrent.
+Since most powerful people operate on the manager's schedule, they're in a position to make everyone resonate at their frequency if they want to.|Puisque la plupart des gens puissants fonctionnent sur l'emploi du temps du cadre, ils sont en mesure de mettre tout le monde à leur rythme s'ils le souhaitent.
+But the smarter ones restrain themselves, if they know that some of the people working for them need long chunks of time to work in.|Mais les plus intelligents se maîtrisent, s'ils savent que certaines personnes travaillant pour eux ont besoin de temps en longues plages.
+Our case is an unusual one.|Notre cas [à Y Combinator, l'entreprise de capital-risque dans laquelle l'auteur est un associé] est inhabituel.
+Nearly all investors, including all VCs I know, operate on the manager's schedule.|Presque tous les investisseurs, y compris tous les capital-risqueurs que je connais, fonctionnent sur l'emploi du temps du cadre.
+But Y Combinator runs on the maker's schedule.|Mais Y Combinator fonctionne sur l'emploi du temps du créateur.
+Rtm and Trevor and I do because we always have, and Jessica does too, mostly, because she's gotten into sync with us.|Rtm, Trevor et moi le faisons parce que nous l'avons toujours fait, et Jessica le fait essentiellement parce qu'elle s'est mise en phase avec nous.
+I wouldn't be surprised if there start to be more companies like us.|Je ne serais pas surpris qu'il commence à y avoir plus d'entreprises comme la nôtre.
+I suspect founders may increasingly be able to resist, or at least postpone, turning into managers, just as a few decades ago they started to be able to resist switching from jeans to suits.|Il me semble que les fondateurs seront de plus en plus capables de résister à leur mutation en cadres, ou au moins de retarder celle-ci (tout comme, il y a quelques décennies, ils ont commencé à garder leurs habits de travail au lieu de se mettre à la cravate).
+How do we manage to advise so many startups on the maker's schedule?|Comment réussissons-nous à conseiller de nombreuses start-ups fonctionnant sur l'emploi du temps du créateur?
+By using the classic device for simulating the manager's schedule within the maker's: office hours.|En utilisant le dispositif classique pour simuler l'emploi du temps du cadre au sein de celui du créateur: les heures de bureau.
+Several times a week I set aside a chunk of time to meet founders we've funded.|Plusieurs fois par semaine, je mets de côté une plage de temps pour rencontrer les fondateurs que nous avons financé.
+These chunks of time are at the end of my working day, and I wrote a signup program that ensures all the appointments within a given set of office hours are clustered at the end.|Ces plages de temps sont à la fin de ma journée de travail, et j'ai écrit un programme d'inscription afin que tous les rendez-vous soient regroupés à la fin d'un ensemble d'heures de bureau.
+Because they come at the end of my day these meetings are never an interruption.|Parce qu'elles arrivent en fin de journée, ces réunions ne sont jamais une interruption.
+(Unless their working day ends at the same time as mine, the meeting presumably interrupts theirs, but since they made the appointment it must be worth it to them.)|(Sauf si leur journée de travail se termine en même temps que la mienne, la réunion interrompt probablement la leur, mais s'ils ont pris rendez-vous, c'est que cela doit être rentable pour eux.)
+During busy periods, office hours sometimes get long enough that they compress the day, but they never interrupt it.|Durant les périodes chargées, les heures de bureau deviennent parfois si longues qu'elles réduisent la journée, mais elles ne interrompent jamais.

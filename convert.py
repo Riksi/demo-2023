@@ -1,59 +1,59 @@
+import glob
 import json
 import os
 
+def get_text(text_file):
+    with open(text_file) as f:
+        text = f.read().splitlines()
+    
+    text = filter(len, map(str.strip, text))
+    text_en, text_tar = zip(*map(lambda x: x.split("|"), text))
+    return text_en, text_tar
 
 
+def make_dataset():
+    # Step 1: 
+    # Read data/metadata.json
+    # This has list of dicts of the form
+    # {"title": "The Need to Read", "author": "Paul Graham", "date": "November 2022", "name": "read", "lang": "en", "url": "http://www.paulgraham.com/read.html"}
 
-def parse(data):
-    # Has form
-    # Title:
-    # title_src | title_tar
-    # Author:
-    # author_src | translator(s)
-    # Date:
-    # date_src | date_tar
-    # Source:
-    # source_src | source_tar
-    # Text:
-    # text_src | text_tar
-    # Parse data
-    separator = ' | '
-    assert data[0] == 'Title:'
-    title, titletrans = data[1].split(separator)
-    assert data[2] == 'Author:'
-    author, translator = data[3].split(separator)
-    assert data[4] == 'Date:'
-    date, datetrans = data[5].split(separator)
-    assert data[6] == 'Source:',  data[6]
-    source, sourcetrans = data[7].split(separator)
-    assert data[8] == 'Text:'
-    splits = [i.split(separator) for i in data[9:]]
-    assert all(len(i) == 2 for i in splits), [i for i in splits if len(i) != 2]
-    text, trans = zip(*splits)
-    return dict(
-        title=title,
-        titletrans=titletrans,
-        author=author,
-        translator=translator,
-        date=date,
-        datetrans=datetrans,
-        text=text,
-        trans=trans,
-        source=source,
-        sourcetrans=sourcetrans,
-    )
+    with open(os.path.join("data", "metadata.json")) as f:
+        metadata = json.load(f)
 
-if __name__ == '__main__':
-    files = os.listdir('data')
-    data_json = {}
-    for f in files:
-        fname = f.split('.')[0]
-        with open(os.path.join('data', f), 'r') as f:
-            data = f.read().split('\n')
-            data = list(filter(len, [i.strip() for i in data]))
-            data_json[fname] = parse(data)
+    # Step 2:
+    # For each language make a dict of the dicts
 
-    with open('content.js', 'w') as f:
-        f.write('const data = {}'.format(
-            json.dumps(data_json)
-        ))
+    name2data = {}
+    for m in metadata:
+        if m["name"] not in name2data:
+            name2data[m["name"]] = {}
+        name2data[m["name"]][m["lang"]] = m
+
+    # Step 3:
+    # - Load <name>-en-<tar>[-part-<part>]*.txt files from data
+    # - Group if there are multiple parts
+    # - Load each file, split into lines then split each using '|' as separator
+    # - Strip whitespace from each line
+    # - Added mapped en to name2data[name][tar] and mapped tar to name2data[name]["en"]
+
+    for name in name2data:
+        for tar in name2data[name]:
+            if tar == "en":
+                continue
+            files = glob.glob(os.path.join("data", name + "-en-" + tar + "*.txt"))
+            if len(files) > 1:
+                files = sorted(files, key=lambda x: int(x.split("-")[-1].split(".")[0]))
+            text_en, text_tar = zip(*map(get_text, files))
+            text_en = sum(text_en, ())
+            text_tar = sum(text_tar, ())
+            name2data[name]["en"][tar] = list(text_en)
+            name2data[name][tar]["en"] = list(text_tar)
+
+    return name2data
+            
+
+
+if __name__ == "__main__":
+    name2data = make_dataset()
+    with open("content.js", 'w') as f:
+        f.write("const data = " + json.dumps(name2data, indent=4))

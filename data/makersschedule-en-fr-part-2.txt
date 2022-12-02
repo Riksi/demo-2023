@@ -1,0 +1,24 @@
+When we were working on our own startup, back in the 90s,|Lorsque nous travaillions dans notre propre start-up dans les années 90,
+I evolved another trick for partitioning the day.|J'avais développé un autre truc pour partitionner la journée.
+I used to program from dinner till about 3 am every day, because at night no one could interrupt me.|Je programmais du dîner jusque vers 3 heures du matin chaque jour, parce que la nuit, personne ne pouvait m'interrompre.
+Then I'd sleep till about 11 am, and come in and work until dinner on what I called "business stuff."|Ensuite, je dormais jusque vers 11 heures, et je venais travailler jusqu'au dîner à ce que j'appelais "le business".
+I never thought of it in these terms, but in effect I had two workdays each day, one on the manager's schedule and one on the maker's.|Je n'y avais jamais pensé en ces termes, mais de fait, j'avais deux journées de travail chaque jour, l'une sur l'emploi du temps du cadre, et une sur celui du créateur.
+When you're operating on the manager's schedule you can do something you'd never want to do on the maker's: you can have speculative meetings.|Lorsqu'on fonctionne sur l'emploi du temps du cadre, on peut faire une chose qu'il n'est pas question de faire sur celui du créateur: on peut faire des réunions spéculatives.
+You can meet someone just to get to know one another.|On peut rencontrer quelqu'un, simplement pour faire connaissance.
+If you have an empty slot in your schedule, why not?|Si on a un emplacement vide dans son emploi du temps, pourquoi pas?
+Maybe it will turn out you can help one another in some way.|Peut-être qu'on se rendra compte qu'on peut s'aider en quelque chose.
+Business people in Silicon Valley (and the whole world, for that matter) have speculative meetings all the time.|Les hommes d'affaire de la Silicon Valley (et du monde entier, d'ailleurs) ont des réunions spéculatives tout le temps.
+They're effectively free if you're on the manager's schedule.|Elles sont effectivement gratuites si on est sur l'emploi du temps du cadre.
+They're so common that there's distinctive language for proposing them: saying that you want to "grab coffee," for example.|Elles sont si fréquentes qu'il y a un langage exprès pour les proposer: dire qu'on va "prendre un petit café", par exemple.
+Speculative meetings are terribly costly if you're on the maker's schedule, though.|Les réunions spéculatives sont terriblement coûteuses si on est sur l'emploi du temps du créateur, cependant.
+Which puts us in something of a bind.|Ce qui nous met un peu en situation de dépendance.
+Everyone assumes that, like other investors, we run on the manager's schedule.|Tout le monde suppose que, comme les autres investisseurs, nous marchons sur un emploi du temps du cadre.
+So they introduce us to someone they think we ought to meet, or send us an email proposing we grab coffee.|Donc, on nous présente à des gens qu'on pense que nous devrions rencontrer, ou on nous envoie des mails nous proposant de prendre un petit café.
+At this point we have two options, neither of them good: we can meet with them, and lose half a day's work; or we can try to avoid meeting them, and probably offend them.|À ce moment, nous avons deux possibilités, mauvaises toutes les deux: nous pouvons rencontrer les gens, et perdre une demi-journée de travail; ou nous pouvons essayer d'éviter de les rencontrer, et probablement les offenser.
+Till recently we weren't clear in our own minds about the source of the problem.|Jusque récemment, nous-mêmes n'avions pas d'idée claire sur la source du problème.
+We just took it for granted that we had to either blow our schedules or offend people.|Nous nous étions résignés à avoir le choix entre détruire notre emploi du temps et offenser les gens.
+But now that I've realized what's going on, perhaps there's a third option: to write something explaining the two types of schedule.|Mais maintenant que j'ai compris ce qui se passe, peut-être y a-t-il une troisième possibilité: écrire quelque chose qui explique les deux types d'emploi du temps.
+Maybe eventually, if the conflict between the manager's schedule and the maker's schedule starts to be more widely understood, it will become less of a problem.|Peut-être qu'à terme, si le conflit entre l'emploi du temps du cadre et l'emploi du temps du créateur commence à être mieux compris, cela deviendra moins problématique.
+Those of us on the maker's schedule are willing to compromise.|Nous qui sommes sur l'emploi du temps du créateur, sommes prêts à faire des compromis.
+We know we have to have some number of meetings.|Nous savons que nous devons avoir un certain nombre de réunions.
+All we ask from those on the manager's schedule is that they understand the cost.|Tout ce que nous demandons à ceux qui sont sur l'emploi du temps du cadre, c'est de comprendre ce que cela nous coûte.
