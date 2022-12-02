@@ -111,8 +111,7 @@ function generateEssay(content){
     
 
     titleDiv.classList.add('title')
-    let authorElem = document.createElement('span')
-    let transElem = document.createElement('span')
+    let authorElem = document.createElement('p')
     authorElem.className = "author"
     authorElem.innerHTML = (
         "(" + content['en']["author"]+ ": "
@@ -120,8 +119,8 @@ function generateEssay(content){
     let titleDivLeft = titleDiv.querySelector('.left')
     titleDivLeft.appendChild(authorElem)
 
-    transElem = ("<span class=author style='font-weight:normal'>(Translated by " + content[tar]['author'] 
-                + ": " + "<a href=" + content[tar]['url'] + ">Source</a></span>)"
+    transElem = ("<p class=author>(Translated by " + content[tar]['author'] 
+                + ": " + "<a href=" + content[tar]['url'] + ">Source</a>)</p>"
                 )
 
     dateDiv.classList.add('date')
@@ -190,7 +189,7 @@ function generateEssay(content){
             container.insertBefore(divs[activeIdx + 1], panel);
             let newHeight = (
                 document.querySelector('body').offsetHeight 
-                + 1.5 * divs[activeIdx + 1].offsetHeight);
+                + 1.8 * divs[activeIdx + 1].offsetHeight);
             document.querySelector('body').style.height = (newHeight + "px");
             divs[activeIdx + 1].querySelector('.text-content').classList.add('text-content-active');
             // divs[activeIdx + 1].scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
