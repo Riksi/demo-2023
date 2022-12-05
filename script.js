@@ -1,7 +1,7 @@
-let panel, textDivTmp, resetBtn, wellDone;
+let panel, textDivTmp, resetBtn, wellDone, statusSpan;
 let testBtn;
 let initHeight;
-const TEST = false;
+const TEST = true;
 
 
 const LANG_MAP = {
@@ -24,6 +24,8 @@ function skipAll(){
 }
 
 function isDiff(x, y){
+    x = x.toLowerCase();
+    y = y.toLowerCase();
     let diff = Diff.diffWords(x, y);
     for (let i = 0; i < diff.length; i++){
         if (diff[i].added || diff[i].removed){
@@ -89,8 +91,8 @@ function generateEssay(content){
     bar.style.width = "0%";
     if(bar.classList.contains('progress-bar-inner-finished')){
         bar.classList.remove('progress-bar-inner-finished')
-        bar.classList.add('progress-bar-inner-unfinished')
     }
+    bar.classList.add('progress-bar-inner-unfinished')
     
     
 
@@ -133,9 +135,16 @@ function generateEssay(content){
     let skipBtn = document.getElementById('skip-btn');
     let transInput = document.getElementById('trans-input'); 
     let diff = document.getElementById('diff');
+    let translationShown = false;
+    let spaceBarHeld = false;
     let activeIdx = 0;
     var learnTrans = {}
-
+    
+    transInput.value = "";
+    transInput.focus();
+    diff.innerHTML = "";
+    statusSpan.innerHTML = "";
+    btn.disabled = true;
     progressText.innerHTML = "0%"
 
     function getTrans(idx, gloss=true){
@@ -149,8 +158,12 @@ function generateEssay(content){
         let glossDiv = div.querySelector('.right')
         contentDiv.onmouseover = ()=>{
             glossDiv.innerHTML = getTrans(activeIdx);
+            translationShown = true;
         }
-        contentDiv.onmouseout = ()=>{glossDiv.innerHTML = ""}
+        contentDiv.onmouseout = ()=>{
+            glossDiv.innerHTML = ""
+            translationShown = false;
+        }
     }
 
     function deactivateGloss(div){
@@ -161,6 +174,10 @@ function generateEssay(content){
 
     
     function showNext(){
+        statusSpan.innerHTML = "";
+        btn.disabled = true;
+        translationShown = false;
+        spaceBarHeld = false;
         divs[activeIdx].querySelector('.right').innerHTML = getTrans(activeIdx);
         transInput.value = "";
         diff.innerHTML = "";
@@ -194,14 +211,83 @@ function generateEssay(content){
             divs[activeIdx + 1].querySelector('.text-content').classList.add('text-content-active');
             // divs[activeIdx + 1].scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
             activeIdx += 1;
-            
+            //focus on transInput
+            transInput.focus();
         
         }   
         
     }
-    
-    transInput.onkeyup = ()=>{
-        learnTrans[activeIdx] = transInput.value
+
+    // If you press and hold space bar when in transInput, show the translation
+    transInput.onkeydown = (e)=>{
+        let glossDiv = divs[activeIdx].querySelector('.right');
+        // if(e.keyCode == 32){
+        //     e.preventDefault();
+        // }
+        // if((e.keyCode == 32) && e.repeat){
+        //     if(!translationShown){
+        //         glossDiv.innerHTML = getTrans(activeIdx);
+        //         translationShown = true;
+        //     }
+        //     spaceBarHeld = true;
+            
+        // }
+        // right arrow
+        if((e.keyCode == 39) && (transInput.selectionStart == transInput.value.length)){
+            e.preventDefault();
+            if (e.repeat && (!translationShown)){
+                glossDiv.innerHTML = getTrans(activeIdx);
+                translationShown = true;
+            }
+        }
+    }
+
+
+    transInput.onkeyup = (e)=>{
+        // Don't show space until space is released
+        btn.disabled = transInput.value.trim().length == 0;
+        // if(e.keyCode == 32){
+        //     if(!spaceBarHeld){
+        //         // find cursor position and insert space
+        //         let pos = transInput.selectionStart;
+        //         let val = transInput.value;
+        //         transInput.value = val.slice(0, pos) + " " + val.slice(pos);
+        //         // place cursor after space
+        //         transInput.selectionStart = pos + 1;
+        //         transInput.selectionEnd = pos + 1;
+        //     } else {
+        //         spaceBarHeld = false;
+        //     }
+        // }
+        let glossDiv = divs[activeIdx].querySelector('.right');
+        // firstSpacePressTime = null;
+        if(translationShown){
+            glossDiv.innerHTML = "";
+            translationShown = false;
+        }
+
+        learnTrans[activeIdx] = transInput.value;
+        // if match statusSpan shows smile emoji otherwise :( emoji
+        if(transInput.value.trim().length > 0){
+            let transSoFar = transInput.value.trim();
+            let transTrue = getTrans(activeIdx, false)
+            // completed emoji
+            if(!isDiff(transSoFar, transTrue)){
+                statusSpan.innerHTML = "&#128175";
+            }
+            else{
+                let transTrueToCompare = transTrue.slice(0, transSoFar.length);
+                if(!isDiff(transSoFar, transTrueToCompare)){
+                    // code for :)
+                    statusSpan.innerHTML = "&#x1F60A";
+                } else {
+                    // code for :(
+                    statusSpan.innerHTML = "&#x1F61E";
+                }
+            }   
+        } else {
+            statusSpan.innerHTML = "";
+        }
     }
 
 
@@ -213,7 +299,8 @@ function generateEssay(content){
         let x= transInput.value.trim().toLowerCase();
         let y = getTrans(activeIdx, gloss=false).trim().toLowerCase();
         addDiff(x, y, diff);
-        if (!isDiff(x, y)){
+        if (isDiff(x, y)){
+        } else {
             showNext();
         }
     }
@@ -232,13 +319,14 @@ window.onload = function(){
     if(TEST){
         testBtn = document.createElement('input')
         testBtn.type = "button"
-        testBtn.value = "Test"
+        testBtn.value = "Show All"
         document.querySelector('#select-container').appendChild(testBtn)
     }
     panel = document.getElementById('panel');
     textDivTmp = document.querySelector('.text-div');
     resetBtn = document.getElementById('reset-btn');
     wellDone = document.getElementById('well-done');
+    statusSpan = document.getElementById('status');
     initHeight = document.querySelector('body').offsetHeight;
     let select = document.getElementById('select-essay');
     let selectLang = document.getElementById('select-lang');
@@ -248,26 +336,41 @@ window.onload = function(){
         option.innerHTML = data[key]['title'];
         select.appendChild(option);
     }
+    // sort LANG_MAP keys based on LANG_MAP values
+    let sortedLangs = Object.keys(LANG_MAP);
+    sortedLangs.sort((a, b)=>{
+        return (
+            LANG_MAP[a] > LANG_MAP[b] ? 1 : -1
+        )
+    })
 
-    for (let key in LANG_MAP){
-        if (key == "en") continue;
+    sortedLangs.forEach((lang)=>{
+        if(lang == "en"){
+            return;
+        }
         let option = document.createElement('option');
-        option.value = key;
-        option.innerHTML = LANG_MAP[key];
+        option.value = lang;
+        option.innerHTML = LANG_MAP[lang];
         selectLang.appendChild(option);
-    }
+    })
+
 
     function setupSelectEssay(){
         select.innerHTML = "";
         let lang = selectLang.value;
-        for (let key in data){
-            if (lang in data[key]){
+        let sortedTitles = Object.keys(data);
+        sortedTitles.sort((a, b)=>{
+            return sortedTitles[a] > sortedTitles[b] ? 1 : -1;
+        })
+        sortedTitles.forEach((title)=>{
+            if(lang in data[title]){
                 let option_essay = document.createElement('option');
-                option_essay.value = key;
-                option_essay.innerHTML = data[key]['en']['title'];
+                option_essay.value = title;
+                option_essay.innerHTML = data[title]['en']['title'];
                 select.appendChild(option_essay);
             }
-        }
+        })
+
         select.onchange = ()=>{
             generateEssay(data[select.value]);
         }

@@ -1,0 +1,24 @@
+When we were working on our own startup, back in the 90s,|Als wir in den 90er Jahren an unserem eigenen Startup arbeiteten,
+I evolved another trick for partitioning the day.|Ich habe einen anderen Trick genutzt, um meinen Tag zu unterteilen.
+I used to program from dinner till about 3 am every day, because at night no one could interrupt me.|Ich programmierte vom Abendessen bis 3 Uhr morgens, denn nachts konnte mich niemand unterbrechen.
+Then I'd sleep till about 11 am, and come in and work until dinner on what I called "business stuff."|Danach habe ich bis ca. 11 Uhr morgens geschlafen, und konnte dann bis zum Abendessen an "geschäftlichem" Arbeiten.
+I never thought of it in these terms, but in effect I had two workdays each day, one on the manager's schedule and one on the maker's.|Ich habe damals nie in dieser Form daran gedacht, aber im Endeffekt hatte ich jeden Tag zwei Arbeitstage, einen nach dem Zeitplan eines Managers und einen nach dem Zeitplan eines Machers.
+When you're operating on the manager's schedule you can do something you'd never want to do on the maker's: you can have speculative meetings.|Wenn man sich an dem Zeitplan des Managers orientiert, kann man etwas machen, was man auf dem Zeitplan eines Machers um jeden Preis vermeiden möchte: man kann spekulative Meetings haben.
+You can meet someone just to get to know one another.|Man kann jemanden treffen, nur um sich kennen zu lernen.
+If you have an empty slot in your schedule, why not?|Wenn man einen freien Zeitabschnitt in seinem Kalender hat, warum auch nicht?
+Maybe it will turn out you can help one another in some way.|Vielleicht stellt sich heraus, dass man einander in irgendeiner Form helfen kann.
+Business people in Silicon Valley (and the whole world, for that matter) have speculative meetings all the time.|Geschäftsleute im Silicon Valley (und auf der gesamten Welt) haben diese spekulativen Meetings sehr häufig.
+They're effectively free if you're on the manager's schedule.|Sie sind nahezu kostenlos, wenn man auf dem Zeitplan des Managers operiert.
+They're so common that there's distinctive language for proposing them: saying that you want to "grab coffee," for example.|Sie kommen so häufig vor, dass sich eine eigene Sprache entwickelt hat, um diese vorzuschlagen: man sagt zum Beipsiel "Wollen wir uns auf einen Kaffee treffen?"
+Speculative meetings are terribly costly if you're on the maker's schedule, though.|Spekulative Meetings sind allerdings sehr kostspielig, wenn man sich auf dem Zeitplan eines Machers befindet.
+Which puts us in something of a bind.|Dies bringt uns in eine Klemme.
+Everyone assumes that, like other investors, we run on the manager's schedule.|Alle gehen davon aus, wie andere Investoren, dass wir auf dem Zeitplan von Managern operieren würden.
+So they introduce us to someone they think we ought to meet, or send us an email proposing we grab coffee.|Daher stellen sie uns anderen vor, von denen sie glauben, dass wir sie treffen sollten, oder schicken uns eine Email mit dem Vorschlag sich auf einen Kaffee zu treffen.
+At this point we have two options, neither of them good: we can meet with them, and lose half a day's work; or we can try to avoid meeting them, and probably offend them.|Dies lässt uns zwei Möglichkeiten offen, von denen beide nicht sehr gut sind: entweder wir treffen uns mit ihnen und verlieren einen halben Tag Arbeit; oder wir vermeiden ein Treffen und laufen damit Gefahr sie zu beleidigen.
+Till recently we weren't clear in our own minds about the source of the problem.|Bis vor kurzem waren wir uns dem Grund des Problems nicht bewusst.
+We just took it for granted that we had to either blow our schedules or offend people.|Wir gingen einfach davon aus, dass wir entweder unsere Zeitplanung aufbrechen oder Menschen beleidigen mussten.
+But now that I've realized what's going on, perhaps there's a third option: to write something explaining the two types of schedule.|Jetzt aber, da ich mir darüber im Klaren werde was vorgeht, gibt es vielleicht eine dritte Option: etwas zu schreiben, was die beiden Formen der Zeitplanung erklärt.
+Maybe eventually, if the conflict between the manager's schedule and the maker's schedule starts to be more widely understood, it will become less of a problem.|Vielleicht, wenn der Konflikt zwischen dem Zeitplan des Machers und dem des Managers weitläufiger verstanden wird, kann das Problem reduziert werden.
+Those of us on the maker's schedule are willing to compromise.|Diejenigen von uns, die sich auf dem Zeitplan von Machern befinden sind bereit Kompromisse einzugehen.
+We know we have to have some number of meetings.|Wir wissen, dass wir an einigen Meetings teilnehmen müssen.
+All we ask from those on the manager's schedule is that they understand the cost.|Wir bitten lediglich darum, dass diejenigen auf dem Zeitplan von Managern sich der Kosten bewusst sind, die diese Meetings mit sich bringen.

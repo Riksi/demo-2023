@@ -3,6 +3,15 @@
 <title>Demo</title>
 <head>
 <style>
+    #upper{
+        position: fixed;
+        min-height: 150px;
+        top: 0;
+        width: 100%;
+        background-color: white;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
    .author a{
     font-size: smaller;
     font-variant: normal;
@@ -31,13 +40,14 @@
         font-size: 24px;
     }
 
+
     form *{
         display: flex;
     }
 
     form textarea{
         width: 80%;
-        min-height: 50px;
+        min-height: 100px;
         margin-bottom: 5px;
     }
 
@@ -93,6 +103,7 @@
     #container{
         width: 90%;
         margin: auto;
+        margin-top: 200px;
     }
 
     .progress-text:first-of-type{
@@ -152,7 +163,7 @@
         .author {
             padding-left: 10px;
         }
-        #compare-btn{
+        #compare-btn, #skip-btn{
             margin-right: 1%;
         }
 
@@ -176,42 +187,40 @@
 </head>
 <body>
 <!--2 select menus Essay, Language-->
-<div>
-<p style="padding:2% 5%" id="select-container">
-    Select language <select id="select-lang"></select>
-    Select essay <select id="select-essay"></select>
-    <input type="button" id="reset-btn" value="Reset">
-</p>
-<!--Create a progress bar-->
-<div id="progress-bar-outer">
-    <div class="progress-text">Progress</div>
-    <div id="progress-bar">
-        <div id="progress-bar-inner"></div>
+<div id="upper">
+    <p style="padding:2% 5%" id="select-container">
+        Select language <select id="select-lang"></select>
+        Select essay <select id="select-essay"></select>
+        <input type="button" id="reset-btn" value="Reset">
+    </p>
+    <!--Create a progress bar-->
+    <div id="progress-bar-outer">
+        <div class="progress-text">Progress</div>
+        <div id="progress-bar">
+            <div id="progress-bar-inner"></div>
+        </div>
+        <div class="progress-text" id="progress-bar-text"></div>
     </div>
-    <div class="progress-text" id="progress-bar-text"></div>
-</div>
 
 </div>
 <div id="container">
-
-
-
-
-
-<div class="text-div">
-    <div class = "left">
-        <span class="text-content"></span>
+    <div class="text-div">
+        <div class = "left">
+            <span class="text-content"></span>
+        </div>
+        <div class="right"></div>
     </div>
-    <div class="right"></div>
-</div>
-<div id="panel">
-    <form id="trans-form" class="left">
-        <textarea name="translation" id="trans-input"></textarea>
-        <p><input type="button" value="Submit" id="compare-btn">
-        <input type="button" value="Skip" id="skip-btn"></p>
-    </form>
-    <div id = "diff" class="right">
-    </div>
+    <div id="panel">
+        <form id="trans-form" class="left">
+            <textarea name="translation" id="trans-input"></textarea>
+            <p>
+                <input type="button" value="Submit" id="compare-btn" disabled> 
+                <input type="button" value="Skip" id="skip-btn">
+                <span id="status"></span>
+            </p>
+        </form>
+        <div id = "diff" class="right">
+        </div>
 </div>
 </div>
 <p id="well-done">Well done!</p>

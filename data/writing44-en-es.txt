@@ -8,7 +8,7 @@ If you're bad at writing and don't like to do it, you'll miss out on most of the
 As for how to write well, here's the short version:|En cuanto a cómo escribir bien, aquí dejo una breve sugerencia:
 Write a bad version 1 as fast as you can;|Escribe una primera versión mala tan rápido como puedas;
 rewrite it over and over;|rescríbela una y otra vez;
-cut out everything unnecessary;|remueve todo aquello que sea innecesario;
+cut <s>out</s> everything unnecessary;|remueve todo aquello que sea innecesario;
 write in a conversational tone;|escribe en un tono de conversación;
 develop a nose for bad writing, so you can see and fix it in yours;|desarrolla un buen olfato para detectar malos escritos, de modo que así puedas arreglar los tuyos;
 imitate writers you like;|imita a escritores que te gusten;
